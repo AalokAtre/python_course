@@ -358,6 +358,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lists">Python Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions">Python Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
             </nav>
         </div>
@@ -411,13 +412,15 @@ document.write(`
 <span class="n">fam2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Liz&quot;</span><span class="p">,</span> <span class="mf">1.73</span><span class="p">,</span> <span class="s2">&quot;emma&quot;</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="s2">&quot;mom&quot;</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="s2">&quot;dad&quot;</span><span class="p">,</span> <span class="mf">1.89</span><span class="p">]</span>
 <span class="n">fam</span>
 <span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">fam</span><span class="p">,</span> <span class="n">fam2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fam2</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># selecting elements from list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fam2</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span><span class="c1"># slicing elements of list, end is not included</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dad
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.73, 1.68, 1.71, 1.89], [&#39;Liz&#39;, 1.73, &#39;emma&#39;, 1.68, &#39;mom&#39;, 1.71, &#39;dad&#39;, 1.89]]
+dad
 [1.68, &#39;mom&#39;]
 </pre></div>
 </div>
@@ -667,6 +670,17 @@ sorted(iterable, /, *, key=None, reverse=False)
 </div>
 </div>
 </section>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h2>
+<p>Packages are directory of python scripts which can be also considered as modules. E.g. Numpy to work with arrays, matplotlib for data visulization and sickit learn for machine learning</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -740,6 +754,7 @@ sorted(iterable, /, *, key=None, reverse=False)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lists">Python Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions">Python Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
   </nav></div>
 

@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introduction';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Markdown Files" href="../markdown.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book Updated" href="../intro.html" />
+    <link rel="next" title="Numpy (Numeric Python)" href="numpy.html" />
+    <link rel="prev" title="DataCamp Data Scientist Career Track (Python)" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -152,15 +152,13 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book Updated
+                    DataCamp Data Scientist Career Track (Python)
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy.html">Numpy (Numeric Python)</a></li>
 </ul>
 
     </div>
@@ -359,10 +357,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions">Python Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array">Numpy Array</a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -722,156 +716,6 @@ sorted(iterable, /, *, key=None, reverse=False)
 </div>
 </div>
 </section>
-<section id="numpy">
-<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this heading">#</a></h2>
-<p>Numeric python</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="mf">1.89</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">]</span>
-<span class="n">np_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
-<span class="n">np_height</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.73, 1.68, 1.71, 1.89, 1.79])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="o">=</span> <span class="p">[</span><span class="mf">65.4</span><span class="p">,</span> <span class="mf">59.2</span><span class="p">,</span> <span class="mf">63.6</span><span class="p">,</span> <span class="mf">88.4</span><span class="p">,</span> <span class="mf">68.7</span><span class="p">]</span>
-<span class="n">np_weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
-<span class="n">np_weight</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([65.4, 59.2, 63.6, 88.4, 68.7])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bmi</span> <span class="o">=</span> <span class="n">np_weight</span><span class="o">/</span><span class="n">np_height</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="n">bmi</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([21.85171573, 20.97505669, 21.75028214, 24.7473475 , 21.44127836])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Numpy arrays can contain only one type of data type. Note the output of the below code block contains all strings</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;String&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1.0&#39;, &#39;String&#39;, &#39;True&#39;], dtype=&#39;&lt;U32&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Numpy is just another data type in python. As such methods behave differently than other data types. Look at the example below where + operation results in appendment in lists while it does arithmetic addition in case of numpy array</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span><span class="p">)</span>
-<span class="n">np_array1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
-<span class="n">np_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np_array1</span> <span class="o">+</span> <span class="n">np_array2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 1, 2, 3]
-[2 4 6]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Other operations</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bmi</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bmi</span> <span class="o">&gt;</span> <span class="mi">23</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bmi</span> <span class="p">[</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[21.85171573 20.97505669 21.75028214 24.7473475  21.44127836]
-20.97505668934241
-[False False False  True False]
-[21.85171573 20.97505669 21.75028214 21.44127836]
-</pre></div>
-</div>
-</div>
-</div>
-<section id="numpy-array">
-<h3>Numpy Array<a class="headerlink" href="#numpy-array" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="mf">1.89</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">],</span>
-                 <span class="p">[</span><span class="mf">65.4</span><span class="p">,</span> <span class="mf">59.2</span><span class="p">,</span> <span class="mf">63.6</span><span class="p">,</span> <span class="mf">88.4</span><span class="p">,</span> <span class="mf">68.7</span><span class="p">]])</span>
-<span class="n">np_2d</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># note this call on shape is an attribute call and not a method (no round brackets around shape)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 5)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Subsetting</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np_2d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># select row and then from row select the column</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np_2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.71
-1.71
-</pre></div>
-</div>
-</div>
-</div>
-<p>Selecting the height and weight of 2nd and 3rd person in the family</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np_2d</span>
-<span class="n">np_2d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># select all rows and column 1(index - 2nd persons) and 2(index - 3rd person)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.68,  1.71],
-       [59.2 , 63.6 ]])
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -911,15 +755,15 @@ sorted(iterable, /, *, key=None, reverse=False)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book Updated</p>
+        <p class="prev-next-title">DataCamp Data Scientist Career Track (Python)</p>
       </div>
     </a>
     <a class="right-next"
-       href="../markdown.html"
+       href="numpy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown Files</p>
+        <p class="prev-next-title">Numpy (Numeric Python)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -946,10 +790,6 @@ sorted(iterable, /, *, key=None, reverse=False)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions">Python Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array">Numpy Array</a></li>
-</ul>
-</li>
 </ul>
   </nav></div>
 

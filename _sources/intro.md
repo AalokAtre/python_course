@@ -1,11 +1,9 @@
-# Welcome to your Jupyter Book Updated
+# DataCamp Data Scientist Career Track (Python)
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This notebook represent the code snippets and notes made during the course of completion of data scientist career track on datacamp
+It follows the course content similar to how it is structured on the career track page, however expect some deviations.
 
-Check out the content pages bundled with this sample book to see more.
+Use the table of contents below to navigate across the notebook.
 
 ```{tableofcontents}
 ```

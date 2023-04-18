@@ -828,19 +828,44 @@ sorted(iterable, /, *, key=None, reverse=False)
 <h3>Numpy Array<a class="headerlink" href="#numpy-array" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="mf">1.89</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">],</span>
-                 <span class="p">[</span><span class="mf">65.4</span><span class="p">,</span> <span class="mf">59.2</span><span class="p">,</span> <span class="mf">63.6</span><span class="p">,</span> <span class="mf">88.4</span><span class="p">,</span> <span class="mf">68.7</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="mf">1.89</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">65.4</span><span class="p">,</span> <span class="mf">59.2</span><span class="p">,</span> <span class="mf">63.6</span><span class="p">,</span> <span class="mf">88.4</span><span class="p">,</span> <span class="mf">68.7</span><span class="p">]])</span>
+<span class="n">np_2d</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># note this call on shape is an attribute call and not a method (no round brackets around shape)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">,</span> <span class="mf">1.89</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                  <span class="p">[</span><span class="mf">65.4</span><span class="p">,</span> <span class="mf">59.2</span><span class="p">,</span> <span class="mf">63.6</span><span class="p">,</span> <span class="mf">88.4</span><span class="p">,</span> <span class="mf">68.7</span><span class="p">])</span>
-
-<span class="ne">TypeError</span>: Field elements must be 2- or 3-tuples, got &#39;65.4&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Subsetting</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np_2d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># select row and then from row select the column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.71
+1.71
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selecting the height and weight of 2nd and 3rd person in the family</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np_2d</span>
+<span class="n">np_2d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># select all rows and column 1(index - 2nd persons) and 2(index - 3rd person)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.68,  1.71],
+       [59.2 , 63.6 ]])
 </pre></div>
 </div>
 </div>

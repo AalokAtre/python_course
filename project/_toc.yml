@@ -6,6 +6,7 @@ root: intro
 chapters:
 - file: docs/introduction.ipynb
 - file: docs/numpy.ipynb
+- file: docs/matplotlib.ipynb
 # - file: markdown
 # - file: notebooks
 # - file: markdown-notebooks

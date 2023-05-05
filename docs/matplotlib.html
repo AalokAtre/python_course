@@ -329,7 +329,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -345,6 +347,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-plotting">Basics Of Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -356,6 +367,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
 <h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this heading">#</a></h1>
+<section id="basics-of-plotting">
+<h2>Basics Of Plotting<a class="headerlink" href="#basics-of-plotting" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -379,7 +392,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd4b0040400&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3914148d90&gt;]
 </pre></div>
 </div>
 <img alt="../_images/5b67ef4350ce47b31ef77acef561fa3f406873d40cf6e151cd9fb81718b3a020.png" src="../_images/5b67ef4350ce47b31ef77acef561fa3f406873d40cf6e151cd9fb81718b3a020.png" />
@@ -393,12 +406,255 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fd4b0097b80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f39140966a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2432e98ae8874c096eb224a5a47f81fbd4fa9751e9e0ec1193ccb9f3d5984675.png" src="../_images/2432e98ae8874c096eb224a5a47f81fbd4fa9751e9e0ec1193ccb9f3d5984675.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function hist in module matplotlib.pyplot:
+
+hist(x, bins=None, range=None, density=False, weights=None, cumulative=False, bottom=None, histtype=&#39;bar&#39;, align=&#39;mid&#39;, orientation=&#39;vertical&#39;, rwidth=None, log=False, color=None, label=None, stacked=False, *, data=None, **kwargs)
+    Compute and plot a histogram.
+    
+    This method uses `numpy.histogram` to bin the data in *x* and count the
+    number of values in each bin, then draws the distribution either as a
+    `.BarContainer` or `.Polygon`. The *bins*, *range*, *density*, and
+    *weights* parameters are forwarded to `numpy.histogram`.
+    
+    If the data has already been binned and counted, use `~.bar` or
+    `~.stairs` to plot the distribution::
+    
+        counts, bins = np.histogram(x)
+        plt.stairs(counts, bins)
+    
+    Alternatively, plot pre-computed bins and counts using ``hist()`` by
+    treating each bin as a single point with a weight equal to its count::
+    
+        plt.hist(bins[:-1], bins, weights=counts)
+    
+    The data input *x* can be a singular array, a list of datasets of
+    potentially different lengths ([*x0*, *x1*, ...]), or a 2D ndarray in
+    which each column is a dataset. Note that the ndarray form is
+    transposed relative to the list form. If the input is an array, then
+    the return value is a tuple (*n*, *bins*, *patches*); if the input is a
+    sequence of arrays, then the return value is a tuple
+    ([*n0*, *n1*, ...], *bins*, [*patches0*, *patches1*, ...]).
+    
+    Masked arrays are not supported.
+    
+    Parameters
+    ----------
+    x : (n,) array or sequence of (n,) arrays
+        Input values, this takes either a single array or a sequence of
+        arrays which are not required to be of the same length.
+    
+    bins : int or sequence or str, default: :rc:`hist.bins`
+        If *bins* is an integer, it defines the number of equal-width bins
+        in the range.
+    
+        If *bins* is a sequence, it defines the bin edges, including the
+        left edge of the first bin and the right edge of the last bin;
+        in this case, bins may be unequally spaced.  All but the last
+        (righthand-most) bin is half-open.  In other words, if *bins* is::
+    
+            [1, 2, 3, 4]
+    
+        then the first bin is ``[1, 2)`` (including 1, but excluding 2) and
+        the second ``[2, 3)``.  The last bin, however, is ``[3, 4]``, which
+        *includes* 4.
+    
+        If *bins* is a string, it is one of the binning strategies
+        supported by `numpy.histogram_bin_edges`: &#39;auto&#39;, &#39;fd&#39;, &#39;doane&#39;,
+        &#39;scott&#39;, &#39;stone&#39;, &#39;rice&#39;, &#39;sturges&#39;, or &#39;sqrt&#39;.
+    
+    range : tuple or None, default: None
+        The lower and upper range of the bins. Lower and upper outliers
+        are ignored. If not provided, *range* is ``(x.min(), x.max())``.
+        Range has no effect if *bins* is a sequence.
+    
+        If *bins* is a sequence or *range* is specified, autoscaling
+        is based on the specified bin range instead of the
+        range of x.
+    
+    density : bool, default: False
+        If ``True``, draw and return a probability density: each bin
+        will display the bin&#39;s raw count divided by the total number of
+        counts *and the bin width*
+        (``density = counts / (sum(counts) * np.diff(bins))``),
+        so that the area under the histogram integrates to 1
+        (``np.sum(density * np.diff(bins)) == 1``).
+    
+        If *stacked* is also ``True``, the sum of the histograms is
+        normalized to 1.
+    
+    weights : (n,) array-like or None, default: None
+        An array of weights, of the same shape as *x*.  Each value in
+        *x* only contributes its associated weight towards the bin count
+        (instead of 1).  If *density* is ``True``, the weights are
+        normalized, so that the integral of the density over the range
+        remains 1.
+    
+    cumulative : bool or -1, default: False
+        If ``True``, then a histogram is computed where each bin gives the
+        counts in that bin plus all bins for smaller values. The last bin
+        gives the total number of datapoints.
+    
+        If *density* is also ``True`` then the histogram is normalized such
+        that the last bin equals 1.
+    
+        If *cumulative* is a number less than 0 (e.g., -1), the direction
+        of accumulation is reversed.  In this case, if *density* is also
+        ``True``, then the histogram is normalized such that the first bin
+        equals 1.
+    
+    bottom : array-like, scalar, or None, default: None
+        Location of the bottom of each bin, i.e. bins are drawn from
+        ``bottom`` to ``bottom + hist(x, bins)`` If a scalar, the bottom
+        of each bin is shifted by the same amount. If an array, each bin
+        is shifted independently and the length of bottom must match the
+        number of bins. If None, defaults to 0.
+    
+    histtype : {&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;}, default: &#39;bar&#39;
+        The type of histogram to draw.
+    
+        - &#39;bar&#39; is a traditional bar-type histogram.  If multiple data
+          are given the bars are arranged side by side.
+        - &#39;barstacked&#39; is a bar-type histogram where multiple
+          data are stacked on top of each other.
+        - &#39;step&#39; generates a lineplot that is by default unfilled.
+        - &#39;stepfilled&#39; generates a lineplot that is by default filled.
+    
+    align : {&#39;left&#39;, &#39;mid&#39;, &#39;right&#39;}, default: &#39;mid&#39;
+        The horizontal alignment of the histogram bars.
+    
+        - &#39;left&#39;: bars are centered on the left bin edges.
+        - &#39;mid&#39;: bars are centered between the bin edges.
+        - &#39;right&#39;: bars are centered on the right bin edges.
+    
+    orientation : {&#39;vertical&#39;, &#39;horizontal&#39;}, default: &#39;vertical&#39;
+        If &#39;horizontal&#39;, `~.Axes.barh` will be used for bar-type histograms
+        and the *bottom* kwarg will be the left edges.
+    
+    rwidth : float or None, default: None
+        The relative width of the bars as a fraction of the bin width.  If
+        ``None``, automatically compute the width.
+    
+        Ignored if *histtype* is &#39;step&#39; or &#39;stepfilled&#39;.
+    
+    log : bool, default: False
+        If ``True``, the histogram axis will be set to a log scale.
+    
+    color : color or array-like of colors or None, default: None
+        Color or sequence of colors, one per dataset.  Default (``None``)
+        uses the standard line color sequence.
+    
+    label : str or None, default: None
+        String, or sequence of strings to match multiple datasets.  Bar
+        charts yield multiple patches per dataset, but only the first gets
+        the label, so that `~.Axes.legend` will work as expected.
+    
+    stacked : bool, default: False
+        If ``True``, multiple data are stacked on top of each other If
+        ``False`` multiple data are arranged side by side if histtype is
+        &#39;bar&#39; or on top of each other if histtype is &#39;step&#39;
+    
+    Returns
+    -------
+    n : array or list of arrays
+        The values of the histogram bins. See *density* and *weights* for a
+        description of the possible semantics.  If input *x* is an array,
+        then this is an array of length *nbins*. If input is a sequence of
+        arrays ``[data1, data2, ...]``, then this is a list of arrays with
+        the values of the histograms for each of the arrays in the same
+        order.  The dtype of the array *n* (or of its element arrays) will
+        always be float even if no weighting or normalization is used.
+    
+    bins : array
+        The edges of the bins. Length nbins + 1 (nbins left edges and right
+        edge of last bin).  Always a single array even when multiple data
+        sets are passed in.
+    
+    patches : `.BarContainer` or list of a single `.Polygon` or list of such objects
+        Container of individual artists used to create the histogram
+        or list of such containers if there are multiple input datasets.
+    
+    Other Parameters
+    ----------------
+    data : indexable object, optional
+        If given, the following parameters also accept a string ``s``, which is
+        interpreted as ``data[s]`` (unless this raises an exception):
+    
+        *x*, *weights*
+    
+    **kwargs
+        `~matplotlib.patches.Patch` properties
+    
+    See Also
+    --------
+    hist2d : 2D histogram with rectangular bins
+    hexbin : 2D histogram with hexagonal bins
+    
+    Notes
+    -----
+    For large numbers of bins (&gt;1000), plotting can be significantly faster
+    if *histtype* is set to &#39;step&#39; or &#39;stepfilled&#39; rather than &#39;bar&#39; or
+    &#39;barstacked&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">2.6</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">3.2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">4.2</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">4.8</span><span class="p">,</span><span class="mf">3.9</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">5.1</span><span class="p">,</span><span class="mf">4.2</span><span class="p">,</span><span class="mf">5.7</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([8., 4., 7.]),
+ array([0., 2., 4., 6.]),
+ &lt;BarContainer object of 3 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/8682c58ff1fedc3ec841445adc9d1f8fe44b6824f72279892c388b157367ffcb.png" src="../_images/8682c58ff1fedc3ec841445adc9d1f8fe44b6824f72279892c388b157367ffcb.png" />
+</div>
+</div>
+</section>
+<section id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2020</span><span class="p">]</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.519</span><span class="p">,</span> <span class="mf">3.692</span><span class="p">,</span> <span class="mf">5.263</span><span class="p">,</span> <span class="mf">6.972</span><span class="p">,</span> <span class="mf">7.65</span><span class="p">]</span>
+
+<span class="n">year</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1930</span><span class="p">,</span> <span class="mi">1940</span><span class="p">]</span> <span class="o">+</span> <span class="n">year</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.26</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">]</span> <span class="o">+</span> <span class="n">pop</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">pop</span><span class="p">)</span>
+<span class="c1"># Lables</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="c1"># Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;World Population&#39;</span><span class="p">)</span>
+<span class="c1"># Scaling of the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="s1">&#39;0B&#39;</span><span class="p">,</span> <span class="s1">&#39;2B&#39;</span><span class="p">,</span> <span class="s1">&#39;4B&#39;</span><span class="p">,</span> <span class="s1">&#39;6B&#39;</span><span class="p">,</span> <span class="s1">&#39;8B&#39;</span><span class="p">,</span> <span class="s1">&#39;10B&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/342ba772baf43428e4c400869b9a24ccc8f37624be46c6cd3ae30e1ce9fb6977.png" src="../_images/342ba772baf43428e4c400869b9a24ccc8f37624be46c6cd3ae30e1ce9fb6977.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -450,6 +706,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-plotting">Basics Of Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
